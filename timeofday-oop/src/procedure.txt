@@ -14,3 +14,17 @@ Procedure for developing a data abstraction:
    4. Declaring and documenting the constructors and mutators
    
 2. Implementing the abstraction
+   1. Defining the representation
+      1. Defining the raw concrete state space
+         (= Defining the (private!) fields)
+      2. Defining the space of valid concrete states
+         (= writing down the representation invariants
+            (= @invar clauses in the Javadoc for the fields))
+      3. Defining the mapping of concrete states to
+         abstract states
+         (= implementing the inspectors)
+      SANITY CHECKS:
+      A. Inspectors don't crash on valid concrete states.
+      B. Valid concrete states are mapped to valid
+         abstract states.
+   2. Implementing the constructors and mutators
