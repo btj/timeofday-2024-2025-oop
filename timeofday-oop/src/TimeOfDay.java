@@ -8,9 +8,18 @@
  */
 public class TimeOfDay {
 	
-	public int getHours() { throw new RuntimeException("Not yet implemented"); }
-	public int getMinutes() { throw new RuntimeException("Not yet implemented"); }
-	public int getMinutesSinceMidnight() { throw new RuntimeException("Not yet implemented"); }
+	/**
+	 * @invar | 0 <= hours && hours <= 23
+	 * @invar | 0 <= minutes && minutes <= 59
+	 */
+	private int hours;
+	private int minutes;
+	
+	public int getHours() { return hours; }
+	public int getMinutes() { return minutes; }
+	public int getMinutesSinceMidnight() {
+		return hours * 60 + minutes;
+	}
 	
 	/**
 	 * @throws IllegalArgumentException | hours < 0 || 23 < hours
@@ -26,7 +35,8 @@ public class TimeOfDay {
 		if (minutes < 0 || 59 < minutes)
 			throw new IllegalArgumentException("`minutes` is out of bounds");
 		
-		throw new RuntimeException("Not yet implemented");
+		this.hours = hours;
+		this.minutes = minutes;
 	}
 
 	/**
@@ -35,7 +45,9 @@ public class TimeOfDay {
 	 * @post | getHours() == hours
 	 * @post | getMinutes() == old(getMinutes())
 	 */
-	public void setHours(int hours) { throw new RuntimeException("Not yet implemented"); }
+	public void setHours(int hours) {
+		this.hours = hours;
+	}
 	
 	/**
 	 * @pre | 0 <= minutes && minutes < 60
@@ -43,12 +55,17 @@ public class TimeOfDay {
 	 * @post | getHours() == old(getHours())
 	 * @post | getMinutes() == minutes
 	 */
-	public void setMinutes(int minutes) { throw new RuntimeException("Not yet implemented"); }
+	public void setMinutes(int minutes) {
+		this.minutes = minutes;
+	}
 	
 	/**
 	 * @pre | 0 <= minutesSinceMidnight && minutesSinceMidnight < 24 * 60
 	 * @mutates | this
 	 * @post | getMinutesSinceMidnight() == minutesSinceMidnight
 	 */
-	public void setMinutesSinceMidnight(int minutesSinceMidnight) { throw new RuntimeException("Not yet implemented"); }
+	public void setMinutesSinceMidnight(int minutesSinceMidnight) {
+		this.hours = minutesSinceMidnight / 60;
+		this.minutes = minutesSinceMidnight % 60;
+	}
 }
