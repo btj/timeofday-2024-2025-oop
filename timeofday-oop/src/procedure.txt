@@ -1,0 +1,16 @@
+Procedure for developing a data abstraction:
+
+1. Defining the API
+   1. Write a line of informal documentation in the Javadoc
+      for the class, explaining what an instance
+      represents (in the case of immutable abstractions)
+      or stores (in the case of mutable abstractions).
+   2. Define the raw abstract state space.
+      (= Declare the inspectors/getters)
+   3. Define the space of valid abstract states.
+      (= Write down the abstract state invariants, either as
+      @invar clauses in the class's Javadoc (= the Javadoc preceding the class),
+      or as @post clauses in the inspectors' Javadoc.
+   4. Declaring and documenting the constructors and mutators
+   
+2. Implementing the abstraction
